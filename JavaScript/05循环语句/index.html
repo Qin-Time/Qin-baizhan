@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //for循环 格式为for(初始化表达式;判断条件布尔表达式;迭代因子){循环体行为语句}    
+        // 初始表达式可以在循环之前初始化，即格式内的表达式空置。迭代因子也可以放到循环体里执行，即格式内的迭代因子空置。但两个分号不能少。判断表达式如果空置，则会无限判断，形成死循环
+
+        //练习1 输出1-20
+        for (var x = 1; x <= 20; x++) {
+            console.log(x);
+        }
+        //练习2 需求，输出所有小于i的值
+        var i = 10;
+        for (; 0 < i; i--) {
+            console.log(i);//该写法不严谨，建议改进
+
+        }
+        //练习3 需求，输出1-100的和
+        var sum = 0;
+        for (x = 1; x <= 100; x++) {
+            sum += x;  //每次进行循环x++，然后再加等赋值给sum。在循环结束后，获得最终的sum
+        }
+        console.log(sum);
+        //练习4 需求，循环输出30以内的奇数
+        for (var i = 1; i <= 30; i++) {
+            if (i % 2 !== 0) {
+                console.log(i);
+            }
+        }
+        //练习5 打印九九乘法表
+        var a = 1;
+        var b = 1;
+        var c;
+        for (; a < 10; a++) {
+            for (; b < 10 & b <= a; b++) {//注意判断条件，通过控制b<a,达成乘法表删除重复冗余部分。
+                c = a * b;
+                console.log(b + "*" + a + "=" + c);
+
+                document.write(b, " * ", a, " = ", c, "\t");//字符串的输出打印，详解字符串章节
+
+            }
+            b = 1;
+            document.write("<br>")
+        }
+
+
+        //while循环  格式为while(布尔循环条件){循环体执行语句}    布尔值真就进入循环体，布尔假则跳出循环体
+        //while循环和for循环基本一致，区别在while语句的循环体没有初始语句，整个循环体是会重复运行的，所以初始语句写在循环体会重复运行，这是错误的。
+        //练习1 
+        var p = 1;
+        while (p < 10) {  //while 循环的布尔条件，不像for循环的条件，for循环有初始表达式，可以在格式内运行一次初始表达式，但是while循环的初始表达式要在循环外定义。
+            console.log(p);
+            p++;
+
+        }
+
+        //break语句 跳出循环并结束整个循环语句    continue语句跳出本轮循环，但整个循环不结束，进入下一次循环。
+        //练习 p为1-30，后台输出1-30内的结果，但打印到网页仅偶数，如果P=10结束整个循环
+        for (var p = 1; p <= 30; p++) { //感觉这个代码有漏洞，或者是自己出的题有漏洞。
+            console.log(p);
+            if (p == 10) { break };
+            if (p % 2 == 0) { document.write(p); continue }
+
+        }
+        //练习  输出j+k的结果。如果j的值为9，则不输出，如果k的值为3，则结束循环。
+        for (var j = 1, k = 1, he = 0; k < 20; k++) {
+            if (k === 3) { break };
+            for (; j < 20; j++) {
+                if (j === 9) { continue; };
+                console.log(he = j + k);
+
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

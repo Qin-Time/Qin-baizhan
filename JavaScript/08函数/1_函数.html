@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //函数的定义  function fname(参数1,参数2，参数N){代码区块；可加return；},参数可省略，但（）必须
+        //如果没有return值，则默认返回undefined
+        //函数可以变量提升。    
+        function printf(s) {
+            console.log(s)
+
+        };
+        printf(2);
+
+        function add(x, y) {
+            console.log(x + y);
+            return x + y;
+        }
+        add(10, 15);
+        let re = add(10, 15);
+        console.log(re);
+
+        add(100, 200);
+        add(5, -3);
+
+        //函数里可以嵌套函数，但不能在外部直接调用内层函数。内层函数仅作用于外层函数之内。如果想调用，需要内层函数提供接口
+        function outf(a, b) {
+            console.log('这是外层函数参数为', a);
+            function innerfunction() { console.log('测试内部函数调用'); }
+            //通常会在外层函数中调用内层函数。如果不调用，则永远不会执行.
+            innerfunction();
+
+            //测试定向调用函数
+            if (a > 0) {
+                function innerfunctiontrue(c) {
+                    console.log('这是内层函数true,我的参数为', b, '我可以访问外层参数：', a);
+                }
+                innerfunctiontrue(b);
+            } else {
+                function innerfunctiontflase(c) {
+                    console.log('这是内层函数flase,我的参数为', b, '我可以访问外层参数：', a);
+                }
+                innerfunctiontflase(b);
+            }
+        }
+        outf(1, 5);  //调用外层函数
+
+        //链式调用 将内部函数作为返回值，返回给外部函数，运行外部函数即可得到内部函数。此时即是闭包，保护了内部函数的私有性
+        function outfunction() {
+            function innerfunction() {//函数的私有性
+                console.log('闭包函数已调用')
+            }
+            return innerfunction; //将内部函数，返回给外部。所以外部函数的返回值为内部函数。  注意，这是外部函数的返回值，不要写到内部函数里。
+        }
+        const newfunction = outfunction();//调用外部函数，外部函数返回结果是内部函数，将这个结果，也就是内部函数赋给新函数。
+        newfunction();
+        outfunction()();//链式调用。即调用一次out，返回结果是inner。因为是个函数，加上（）则代表调用了一次。再加（）再调用，直到返回结果不是函数为止，如果返回结果不是函数，但是加了（），就会报错
+        
+
+    </script>
+
+</body>
+
+</html>

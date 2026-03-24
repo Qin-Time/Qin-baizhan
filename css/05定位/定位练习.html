@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+        }
+        .container{
+            position: relative;
+        }
+
+        #b1 {
+            height: 300px;
+            background-color: aqua;
+            position: relative;
+            left: 400px;
+            top: 200px;
+        }
+
+        #b2 {
+            background-color: #ff0;
+            position: absolute;
+            left: 700px;
+
+        }
+
+        #b3 {
+            background-color: #ff4400;
+            position: fixed;
+            right: 100px;
+            bottom: 50px;
+        }
+
+        #b4 {
+            background-color: #0f0;
+        }
+
+        p {
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="box" id="b1">测试文本1</div>
+        <div class="box" id="b2">测试文本2</div>
+        <div class="box" id="b3">测试文本3</div>
+        <div class="box" id="b4">测试文本4</div>
+        <p>换屏文本</p>
+        <p>换屏文本</p>
+        <p>换屏文本</p>
+        <p>换屏文本</p>
+        <p>换屏文本</p>
+    </div>
+</body>
+
+</html>

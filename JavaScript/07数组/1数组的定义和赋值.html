@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //数组有个length的属性，为数值的长度
+        var obj = {                                     //创建一个对象
+            name: "创建一个对象", age: "13"
+        };
+
+        console.log(typeof obj);
+
+        var arr1 = [];                                  //也可以先声明空数组，再赋值，赋值时需要每个对应下标
+        arr1[0] = 1;                                    //下标从0开始，计算机的初始位置
+        arr1[1] = "2";
+        arr1[2] = 3;
+        console.log(arr1);
+        
+        var arr2 = [1, "two", 3, false, [arr1], obj];   //声明的时候可以直接赋值，可以放任意类型的数据
+        //这里明明是二维数组，为什么控制台显示的是三维数组！！显示的在 arr2[4]这个位置的数据为一个长度的数组arr？原本的二维数组结果嵌套到了奇怪插入的数组，变成了三维数组。
+        //明白了，这里代码的释意是这样的，如果代码写 var arr2 = [1, "two", 3, false, arr1, obj];  则正常，如果写[arr1]，注意这个中括号会定义成一个长度为1，内容为arr1的数组
+        //var arr2 = [1, "two", 3, false, arr1, obj];    ！！！ 注意arr1不要带[]了
+        console.log(arr2);     
+        //这里明明是二维数组，为什么控制台显示的是三维数组！！显示的在 arr2[4]这个位置的数据为一个长度的数组arr？原本的二维数组结果嵌套到了奇怪插入的数组，变成了三维数组。
+
+
+        console.log(arr2[3]);//数组可以用下标读取。这里读取
+
+        console.log(arr2.length); //控制台输出数组长度
+
+        console.log(arr2[9]);//数组越界，这里arr2[9]返回值为undefined，再返回给log控制台
+        
+        
+        
+
+    </script>
+</body>
+
+</html>

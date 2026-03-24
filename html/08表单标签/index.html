@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text">
+        <input type="submit">
+        <button>一个按钮</button>
+
+    </form>
+
+    <p>表单标签为封闭标签form，拥有属性，表单属性大多指向后台 1.action链接服务器的地址 2.name表单的名称 3.method表单的提交方式，get方式和post方式，详见网络请求提交方式</p>
+    <p>表单由容器和控件组成 组成表单的元素有1.表单标签，即form标签，为表单容器2.表单域，即交互窗口，多为输入框，称为控件3.表单按钮，同为控件</p>
+    <p>内嵌标签 1.input单标签，即输入框，交互窗（默认为输入框，若定义控件属性type改为submit，可变更为按钮）2.</p>button按钮封闭标签，内容为按钮名字
+    <p>下面将表单的使用具体演示</p>
+    <form action="">
+        我的用户名：<input type="text">
+        我的密码：<input type="password">
+        <input type="submit" value="登录啦">
+
+    </form>
+    <p>以上标签input内的属性 type="text"即定义了表单域为普通文本框。type="password"定义了表单域为密码式的文本框。type="submit"
+        value="登录啦"定义了表单域为submit按钮，紧跟着定义value替代了按钮的文本</p>
+</body>
+
+</html>

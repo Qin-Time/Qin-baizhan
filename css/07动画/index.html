@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .f1 {
+            width: 300px;
+            height: 500px;
+            background-color: yellow;
+            animation: myanim 5s linear 0ms infinite normal;
+
+        }
+        .f2 {
+            width: 200px;
+            height: 100px;
+            margin: 50px auto;
+            background-color: rgb(175, 10, 10);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            animation: breathe 1s ease-in-out infinite alternate;
+
+        }
+
+        div:hover {
+            animation-play-state: paused;
+            /* 定义动画触发条件,此条件为鼠标划上去触发暂停 */
+
+        }
+
+        @keyframes myanim {
+            /* 此处定义动画格式，以下为格式内容，0%-100%为进度设定 */
+
+
+            0% {
+                width: 200px;
+                height: 200px;
+                background-color: brown;
+            }
+
+            50% {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background-color: blue;
+            }
+
+            100% {
+                width: 200px;
+                height: 200px;
+                background-color: aqua;
+            }
+
+
+        }
+
+        @keyframes breathe {
+
+            /* 此处定义动画格式，该动画格式为呼吸效果。以下为格式内容，0%-100%为进度设定 */
+            0% {
+                opacity: 0.2;
+                box-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+            }
+
+            50% {
+                opacity: 0.5;
+                box-shadow: 0 1px 2px rgba(18, 190, 84, 0.7);
+            }
+
+            100% {
+                opacity: 1;
+                box-shadow: 0 1px 30px rgba(59, 255, 255, 1);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="f1"></div>
+    <div class="f2"></div>
+</body>
+
+</html>

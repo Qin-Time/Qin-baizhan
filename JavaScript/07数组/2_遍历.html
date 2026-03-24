@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(typeof name);
+        
+        var names = ["张三","李四","王五","赵六"];
+        console.log(names[1]);           //为什么输入数字是以分割方式进去的。难道不是以每个名字的形式存到下标里面吗。草，原来是我原来命名的name是前面head里定义的string字符。改成了names
+        console.log(names.length);
+        
+        //for循环遍历
+        for(var i = 0;i < names.length;i++){
+            console.log(names[i]);
+            
+        }
+
+        //for(下标变量in数组){} 遍历
+        for (var i in names){
+            console.log(names[i]);
+            
+        }
+    </script>
+</body>
+</html>

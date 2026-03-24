@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //this 在广义上指“该对象”如  函数名（参数）{this.参数} 代表 该对象.参数   没有其他情况影响，通常指函数本身。
+        function person1(name) {  //常用定义函数的方式
+            console.log(name);
+        }
+        person1('张三');
+
+
+        function person2(name) {    //当代码块有this引用时，编写工具会将函数名变色提示
+            this.name = name;       //函数内写了this，如果没有其他情况影响，这里的this.name表示person1.name  不过这里初步理解this，只对name重复赋值，没有其他复杂操作。
+            console.log(name);
+        }
+        person2('李四');
+
+        function Person3(name) {
+            this.name = name;
+            console.log(this);
+        }
+        const p = new Person3('Alice');
+        //当new 一个函数时，会生成一个实例对象（函数也是对象），内部原型 指向该自定义的普通函数（继承的概念），此时可以称为构造函数。同时调用函数运行。
+        //构造函数内部原型的this会指向本次创建的实例对象。
+        // this -> p 实例对象
+        // 输出: Person { name: 'Alice' }
+        //通过构造的一系列操作，此时this指向了  Person{name:'alice'} 这个实例
+        //这个实例内部可以理解为
+        // 构造出的Person(接收参数alice){
+        //      构造出来的 Person.name = 接收的参数alice；
+        //      console.log(构造出来的Person)
+        //      }
+        // 所以将会打印一个对象  Person 。   即我们将函数封装到了对象里。这个对象拥有一个属性name，值被上一句代码赋值过。
+
+
+        //内存优化
+        //如果在构造函数内部直接定义方法，因为new创建一个实例对象时，每个实例都会创建一个副本，将会浪费内存
+        //其实JavaScript里的函数自带一个属性，prototype属性。 这个属性是一个对象。当访问一个函数里如果没有的方法，系统会自动去prototype上找。
+        //所以可以将函数内的方法，置于prototype属性中。
+        //简单理解就是，new一个实例对象，这个实例对象有条专用隐藏链接，仅仅是一个链接，指向存在于构造函数上的对象。真正的方法由这个链接外部的对象存储。
+        //引申！！！  
+        //          实例对象的隐式属性实际为 __proto__  这个属性归属于实例对象，内容是一条指向 prototype 的链接 
+        //          真正存储方法的位置是prototype这个对象，归属于构造函数。 所以无论new多少实例对象，prototype仍然只有一个。
+        //          构造函数还有一个 constructor属性，归属于构造函数原型自身。指回构造函数本身。
+        function Person(name) {
+            this.name = name; // 实例自有属性
+        }
+
+        // 给 prototype 添加方法
+        Person.prototype.sayHello = function () {
+            return `Hello, I am ${this.name}`;
+        };
+
+        // 创建实例
+        const alice = new Person('Alice');
+        const bob = new Person('Bob');
+
+        console.log(alice.sayHello()); // "Hello, I am Alice"
+        console.log(bob.sayHello());   // "Hello, I am Bob"
+
+        // 验证共享
+        console.log(alice.sayHello === bob.sayHello); // true 
+        // 它们引用的是内存中的同一个函数，节省内存！
+console.log();
+
+</script>
+</body>
+
+</html>
+

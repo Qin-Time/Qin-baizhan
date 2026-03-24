@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //arr.indexOf(参数1，可选参数2) 在数组内查找参数内容，返回第一次出现的下标，未匹配则返回-1.参数2为下标起始位置，默认为0，如果为负数，则倒序计算开始位置，但依然从前至后开始匹配第一个。
+
+        //判断数组内是否有某数据
+        let arr = [10,20,30,40,50,30];
+        //if(arr.indexOf('20',0) == -1){  此段的搜索参数加了''表示搜索的是字符串。indexOf的匹配逻辑是===严格比较，数据类型也会判断。
+        if(arr.indexOf(20,3) == -1){
+            console.log('内容不存在');
+            
+        }
+        else console.log('内容在某某位置，用代码表示');
+        console.log(arr.indexOf(30,-3));//倒序定位搜索起始位置。
+        
+    </script>
+</body>
+</html>

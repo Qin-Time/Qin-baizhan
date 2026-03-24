@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //字符串 ""  ''  单双引号可以互相嵌套，但是同一种引号无法互相嵌套，如“外围文本”内层文本“外围后部”此时内层文本被孤立了。字符串默认写在一行内，不能分行，如果代码需要换行，需要加 \
+        //如果项目要求输出嵌套引号，则需要转义  \"   \"    代码换行需要加\
+        //length属性  为标签（html意义的标签，在java里应该理解为类型的属性）的属性。此为非行为指令，是属性！length不带()，通常被调用。该属性为只读。 
+
+
+
+        //charAt()      返回指定位置字符串
+        //concat()      字符串合并
+        //substring()   指定开始和 结束位置! ，截取字符串内容
+        //substr()      指定开始和 截取长度! ，截取内容
+        //indeOf()      查找参数里的内容
+        //trim()        清空两侧空格
+        //split()       分割字符串输出一个字符串数组
+
+
+
+
+        var str1 = "  字符|串外围前部\"内层文本\"外围后部 此后换行\
+        次行代码文本";
+        document.write(str1);
+        console.log(str1.length);//回头理解属性和标签的区别，这里应该理解为执行控制台console命令下的子命令日志log命令，所以是个行为命令，代码需要(装行为内容) 来封装内容用来规范代码，固定格式
+        //而length为标签的属性，不是行为代码。不带后续执行某行为，所以没有()。这里的行为就是调用str1的length属性。   
+
+
+
+        //str.charAt方法   输出指定位置的字符。在计算机中，起始位置为0,1,2...   A必须大写，这个为行为代码，后面有（）。
+
+        console.log(str1.charAt(0));//返回第一个字符串
+        console.log(str1.charAt(str1.length - 1));//返回最后一个字符串
+        console.log(str1.charAt(str1.length));//如果指定位置为负数，或者越界，则返回空字符串。此处因为位置从0开始，但字符串长度从1开始累计，所以越界了。
+
+
+
+        //concat()方法  拼接多个字符串，返回一个新字符串，不改变原字符串.可以接受多个字符串,用逗号隔开
+
+        //字符串连接是，如果接受的值不是字符串类型，则会先将值转换为字符串类型再进行拼接
+        var str2 = "concat尾部文本2";
+        var num = 100;//使用concat将会先转换成"100" 字符串类型。原值也没有改变
+        console.log(str1.concat(str2, num));
+        //concat简化方法 str1 + str2 + num
+        console.log(str1 + str2 + num);//这里为concat方法，num仍遵循concat的规则
+        //练习
+        var one = 1;
+        var two = 2;
+        var three = '3';
+        console.log(''.concat(one, two, three));
+        console.log(one + two + three)//注意，这里是+运算符和concat方法的区别，当声明的东西为数值类型时，+会被识别为运算符。当无法进行数值类型运算时，才被视为contcat字符串连接。 这里返回的值为  33。  前面的3【是被运算为3(数值类型)，遇到无法运算时，再转换为"3"】再然后拼为"33"
+
+
+
+        //str.substring(参数1，参数2)方法 字符串截取。  参数1为开始位置，参数2为结束位置，参数2的字符不会返回。若参数2为空，则直接截取到字符串结束。
+
+        console.log(str1.substring(3, 5));//记得开始位置为0，这里输出“外围”。
+        //如果传入的参数2小于参数1，则会自动更换两个参数位置。（我的疑问，迷之功能） 如果参数是负数，会自动将负数转换为0.这个功能有点用，但是如果第二个参数写错成负数，同样会导致前诉迷之功能
+
+
+
+        //str.substr(参数1，参数2)方法   也是截取，但是和substring不同在于，参数2的性质不同，substr的参数2为需要截取的长度。substring的为截取的位置。
+        //区别！！！str如果第一个参数为负数，区别于string方法，不会被转换为0，而是表示从尾端倒数确定截取位置。如果第二个参数为负数，将会转换成0，但不会调换位置，此时表示长度为0，返回空字符串
+        console.log(str1.substr(3, 2));//记得开始位置为0，这里输出“外围”。区别于substring
+
+
+
+
+        //str.indexOf(参数，可加参数2)方法  查找字符串中的某值（参数,可加参数2数值），返回该查找目标匹配的第一个位置，如果未匹配，则返回-1。还可以接受第二个参数，表示从参数2的位置开始匹配
+        console.log(str1.indexOf("外围", 5));//参数2可省略
+        if (str1.indexOf("后1") > -1) {
+            document.write("搜索内容在第" + str1.indexOf("后") + "位");//这里的输出位置想加1的，但是好麻烦，以后优化。字符串的拼接内容，最好是给个值先+1再拼。
+
+        } else { document.write("搜索内容不存在"); }
+
+
+
+        //str.trim()方法  去除两端空格、制表符、换行，返回一个新的字符串  次方法无参数
+        //ES6拓展  trimStat()去除前端空格  trimEnd()去除尾端空格
+
+        console.log(str1.trim());
+
+
+
+        //str.split("参数，可加参数2")  以参数分割字符串，返回一个数组，不包含参数  常用参数有“|”，需要在文本中提前插入|文本，用以后续分割，但影响其他使用
+        //还可以接受第二个参数，这个参数限定了返回数组的长度。
+        console.log(str1.split(""));//空字符串，分割每一个字符。如果（）内没有写“” 则表示没有参数，此时会讲原字符串整个切割，形成一个仅有完整原始字符串的数组
+        console.log(str1.split());
+        console.log(str1.split("|"));
+        console.log(str1.split("外"));
+        console.log(str1.split("", 5));
+
+
+    </script>
+
+</body>
+
+</html>

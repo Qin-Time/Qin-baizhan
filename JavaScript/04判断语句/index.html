@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //判断语句 代码格式为 if (布尔表达式、即判断条件) { true的行为表达式 }； else { false的行为表达式 }；！！！注意布尔表达式里的=赋值命令和==比较命令的区别
+        //if后面的大括号是必须的，else的大括号则可以省略，但是为了提升代码的易读性，我选择保留大括号
+        //if else可以嵌套
+        //if可以单独出现，但else总是会索引到同级的最近的if形成组合 
+
+        //练习1
+        var x = 20;
+        var y = 30;
+        if (x > y) {
+            console.log("x比y大");//此处因为条件语句返回的结果为false，所以这条表达式不会运行，
+        }
+        //以上为if单独出现，但未成功运行行为代码，应当配合else代码正确输出结果
+        else {
+            console.log("x比y小"); //补充else行为，补全代码
+        }
+
+        //练习2
+
+        var num = 1;
+        if (num < 50) {
+            console.log(num); num++;  //错误演示，if 语句为判断语句，仅判断一次结果，整个if代码仅运行一次。此处num++应该是希望循环输出结果1-50，应该使用for语句或while语句
+        }
+        else {
+            console.log("输出完毕");
+        }
+
+        //练习3 if else 的嵌套
+        var day = 6;
+        if (day == 1) {  //一定要注意布尔表达式的赋值和比较，初次写这段代码时就用错了，谨记
+            console.log("今天周一");
+        }
+        else {
+            if (day == 2) {
+                console.log("今天周二");
+            }
+            else {
+                if (day == 3) {
+                    console.log("今天周三");
+                }
+                else {
+                    if (day == 4) {
+                        console.log("今天周四");
+                    }
+                    else {
+                        if (day == 5) {
+                            console.log("今天周五");
+                        } else {
+                            console.log("今天周末不用上班");
+                        }
+                    }
+                }
+            }
+        }
+        //练习4 嵌套情况2
+        var eat = 1; //小巧思，原本代码应该此处赋值true或false，但我们知道在进行布尔判断时，非布尔值也可以转换为布尔值返回。1返回的布尔值就是true，0返回的布尔值是false
+        var food = "馒头";
+        if (eat) {
+            if (food === "包子") {
+                console.log("早上吃了包子");
+
+            } else {
+                console.log("早上吃的不是包子，但是吃了馒头");
+
+            }
+
+        } else {
+            console.log("早上还没吃东西");
+
+
+        }
+
+
+
+        //判断语句switch  格式为switch(表达式){ case判断值:行为语句；  case判断值2:行为语句2; …… default不满足任一条件:不满足的行为；}
+        //break为结束判断，即找到答案了就结束判断。如果不加break，找到答案后，将会继续执行后面的行为。
+        //continue为结束档次判断，但后续判断依然继续。判断语句用不到，但是循环语句可能需要使用。
+        var name = "赵甲";
+        switch (name) {
+            case "张三": console.log("他叫张三");
+                break;
+            case "李四": console.log("他叫李四");
+                break;
+            case "王五": console.log("他叫王五");
+                break;
+            case "何六": console.log("他叫何六");
+                break;
+            default: console.log("我不认识这个人");
+
+
+        }
+
+        //三元运算符  (条件) ? 表达式1 : 表达式2   条件语句为布尔表达式，true结果则运行表达式1，false结果则运行表达式2
+
+        var a = 51;//赋值，然后需要判断值为奇数偶数
+        (a %= 2 ===0) ? console.log("偶数") : console.log("奇数");
+        
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

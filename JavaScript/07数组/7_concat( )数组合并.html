@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //arr.concat(参数1，参数2,参数N) 将参数内数值或值合并到arr尾部，返回结果为新的数组，原数组不变
+    
+        let arr1 =['张三','老张'];
+        let arr2 =[30];
+        let arr3 =[false];
+
+        console.log(arr1+ arr2);//通过加号合并，会转换为字符串，结果非数组
+        
+        console.log(arr1.concat(arr2,arr3));
+        console.log(arr1.concat(31,true));//参数直接使用值，也可以合并
+        console.log(arr1.concat(35,['内联值1','内联值2']));//参数内多种数据类型，是一个独立单元，我以为会形成嵌套。但是如果参数值为数组，依旧遵循concat规则，合并为一维数组
+        
+        
+        
+
+    </script>
+</body>
+</html>

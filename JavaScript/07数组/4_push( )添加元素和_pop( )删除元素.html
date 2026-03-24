@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //arr.push(参数1，参数2...参数N) 在数组的尾端添加值，原数组发生改变。返回数组的长度
+        var arr1 = [];
+        
+        console.log(arr1.length);
+        arr1.push('添加内容1')
+        console.log(arr1.push("添加内容2"));
+        arr1.push(3, true);
+        console.log(arr1);
+
+        //arr.pop()   pop方法没有参数。从数组尾端开始删除元素，参数为删除的数量。原数组发生改变。返回被删除的值。如果原数组为空，则会返回undefined
+        console.log(arr1.pop());
+        console.log(arr1.pop());
+        console.log(arr1.pop());
+        console.log(arr1.pop());
+        console.log(arr1);
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //arr.shift()从数值头部删除元素，会改变原数组。返回被删除的元素。如果数组长度为0，则返回undefined
+        var arr2 = [50,100,200,300,400,500];
+        arr2.shift();
+        console.log(arr2.shift());
+        console.log(arr2);
+
+        var a = 0
+        if(a = 1){console.log(a);
+        }
+        //练习 清空数组
+        for(i = arr2.length ;i > 0;i--){
+            console.log(arr2.shift());
+
+            console.log(arr2);
+        }
+        console.log(arr2);
+
+
+        // var arr1 = [100,200,300];
+        // var i;
+        // while(i = arr1.shift()){
+        //     console.log(i);
+            
+        // }
+        // console.log(arr1);
+        //这段用while写的，通过arr.shift()的值赋值给i，再判断i的布尔值，思路是可以理解的，把被删除的元素赋值给i，有元素就true，删除空了就是undefined。返回false。但是如果是[100,0,200,300]的数组，判断到第二个元素则会直接跳出循环，失去代码作用。
+        
+
+
+        
+        //unshift(元素1，元素2...元素N)从头部开始一次性添加元素，改变原数组，返回数组的长度。
+        var arr3 = [7,8,9];
+        console.log(arr3);
+        console.log(arr3.unshift(4,5)); //注意返回值为长度
+        console.log(arr3);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //对象 是一个包含 键值对 的数据的集合 键名即对象的属性，键值就是值
+        //  obj{key:value}
+        const yuangong = {
+            name: '张三',
+            age: 23,
+            num: '001',
+            jobs: ['司机', '销售', '程序员'],
+            famali: { wife: '韩梅梅', sun: '张四' },
+            work: function () {
+                console.log('dosomething')
+            }
+        };
+        console.log(yuangong.name);         //输出对象的.name属性
+        console.log(yuangong.jobs[2])       //输出属性下的数组 的索引位置的内容
+        for(let i in yuangong.jobs){            //遍历数组
+            console.log(yuangong.jobs[i]);
+        }
+        console.log(yuangong.famali.wife);  //对象内嵌套对象，可用链式调用
+        
+        yuangong.work();                    //调用对象内的 函数（也称方法）  注意调用方法要加括号，参数根据实际情况加
+        
+        //for of遍历对象的值
+        for(const value of Object.values(yuangong)){                 
+            console.log(value);
+        }
+        //for of遍历对象的key
+        for(const key in Object.keys(yuangong)){                 
+            console.log(key);
+        }
+        //这里其实就是调用了js内置的方法，  Object.values() Object.keys() ,然后将对应内容返回给 const定义的key
+        </script>
+</body>
+
+</html>

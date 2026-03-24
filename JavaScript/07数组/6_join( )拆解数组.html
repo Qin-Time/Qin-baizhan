@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //arr.join(参数) 拆解数组，转换为 字符串 ，以参数作为单元间隔输出。参数为空时，默认以逗号为间隔。参数为''空字符串时，输出单元无间隔。
+        //当单元内容为null或undefined或空位，会被转换为空字符串
+        let arr = ['内容1','内容2','内容3','内容4','内容5', ,null,'内容6']
+        console.log(arr.join('+'));
+        console.log(arr.join(' '));//空格也是间隔单元
+        console.log(arr.join());//以逗号分割
+        console.log(arr.join(''));//以空字符串分割，输出内容空字符串不会显示内容
+
+        //数组join方法 和字符串split方法互相切换，join 将数组拆解为字符串，split将字符串分割成数组
+        let arr1 = ['张三','年龄',20,true];     //注意，所有数据类型，都会被转换成字符串类型，会丢失数据类型
+        let zharr1= arr1.join(); //个人感觉，不输入参数为常见情况，默认通过，分割也容易实现后续操作
+        console.log( zharr1);
+        console.log(zharr1.split(","));
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            display: block;/* 此处效果为将原本为行内元素改为块级元素 */
+            width: 100px;
+            height: 200px;
+            border: 1px solid red;
+            background-image: url(nob.jpg);/* 引入精灵图作为背景 */
+        }
+        .inco1{
+             background-position: -38px -50px;/* 移动背景精灵图实现效果 */
+        }
+        .inco2{
+             background-position: -158px -50px;/* 移动背景精灵图实现效果 */
+        }
+        .inco3{
+             background-position: -38px -230px;/* 移动背景精灵图实现效果 */
+        }
+    </style>
+</head>
+
+<body>
+    <span class="inco1"></span>
+    <span class="inco2"></span>
+    <span class="inco3"></span>
+
+
+</body>
+
+</html>

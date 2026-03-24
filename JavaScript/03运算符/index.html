@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        //数学运算符 + - * / %    ++自增  --自减
+        var num = 123;
+        console.log(++num);//先将num+1后，重新赋予num，再输出结果，代码运行才结束。++在前为先运算，++在后为先运行代码，代码运行结束后再自增。
+        console.log(num);
+
+        var a = 5;
+        var b = 8;
+        console.log(a++ + --b); /* 输出运算结果，此处a++为先调用数据运算，运算结束后再对a自增。即5+7=12 当前代码运算结果为显示12。但此行代码结束后a已重新赋值为6，b已重新赋值为7*/
+        console.log(a);
+        console.log(b);  /* 输出ab验证一下 */
+
+
+
+        //赋值运算符   =赋值   +=加等（运算加法后赋值）   -=减等（减后赋值）   *=乘等   /=除等   %=取余等   理解为将某值赋予给变量
+
+        var x = 10;
+        var y = 20;
+        var z = 30;
+
+        // 加等 +=  代码为 “x += y”  ，理解方式应该为  “x ← 赋予 （运算式的结果）”  整段理解为：   “变量1”  “+=”  “变量2”    调用 “+=”运算符前的运算子进行运算，再讲运算结果返回赋予给变量1
+        // 其他 += 加等  -= 减等  *= 乘等  /= 除等   %= 取余等  同理  
+
+        console.log(x += 1);/*  即x=  x+1  等同于++x */
+        console.log(x);
+        console.log(y);
+        console.log(z += y);   /* 即重新赋值z= 30+20  */
+
+
+
+        //比较运算符   <   >   <=   >=   ==比较相等   ===严格比较相等   !=比较不等(或者理解为取反相等)   !===严格  用于比较两个值，然后返回布尔值。
+
+        var num1 = 10;
+        var num2 = 20;
+        var num3 = "10";
+        console.log(num1 > num2); //比较两值大小，明显返回false
+        console.log(num1 == num3); //比较两值是否相等，明显返回true  仅比较数值，详解下条
+        //   === 为严格比较，1.数值本身的值是否相同 2.数值的类型是否相同
+        console.log(num1 === num3); //false 数值相等，但是n1为int数值类型 n3为string字符串类型  虽然值相同，但是类型不同。返回结果false
+
+        console.log(num1 != num3);//flase 值相等，所以运算结果为否，他们相等了
+        console.log(num1 !== num3);//true 值相等，但是类型不同，所以他们运算结果应该判断为他们不同，返回结果true
+
+
+
+        //布尔运算符  ! 取反运算    && 且运算   || 或运算
+
+        //取反运算
+        var flag = true;
+        console.log(!flag);//false  原值为true，但这里将值取反，所以输出结果为false
+        //如果对非布尔值取反，会将原值类型转换为布尔类型，大部分类型的布尔属性为true（可以理解为这个值里有东西） 取反后则返回false
+        //仅有6种值转换为布尔后为false:     undefined   null   false   0   NaN   空字符串("")    
+        //以上值可以理解为（这个值里没有东西，或不存在） 所以布尔属性为false，取反结果为true
+        console.log(!0);//true  取反 0  ，原类型为非布尔，转换为布尔后值为false。返回结果true
+        console.log(!2);
+        console.log(!num1);//false  num1里有东西。
+
+        //且运算 多个条件同时判断，要全部满足，则返回true
+        console.log(5 < 10 && 30 > 20 );// true 
+        console.log(5 < 10 && 30 > 20 && num1>num2);//false 第三条件未满足
+        //或运算符 多条件中，判断任意条为true，则判定成功。都不满足，则返回为false
+        console.log(5 < 10 || 30 > 20 || num1>num2);//true 前两个为true，最后一个为false，但这里是或判断，所以结果为true
+        console.log(5 < 10 || 15 > 20 && num1>num2);//true 复合型判断，但是包含了一个或，虽然其他前置条件未返回true，但是或判断为true，所以结果为true
+        
+//测试题
+        var u = 0;
+        u++;
+        console.log(!u);
+        
+
+    </script>
+</body>
+
+</html>
