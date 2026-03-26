@@ -56,7 +56,7 @@
         //链式调用 将内部函数作为返回值，返回给外部函数，运行外部函数即可得到内部函数。此时即是闭包，保护了内部函数的私有性
         function outfunction() {
             function innerfunction() {//函数的私有性
-                console.log('闭包函数已调用')
+                console.log('闭包函数已调用221')
             }
             return innerfunction; //将内部函数，返回给外部。所以外部函数的返回值为内部函数。  注意，这是外部函数的返回值，不要写到内部函数里。
         }
